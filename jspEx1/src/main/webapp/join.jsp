@@ -7,8 +7,8 @@
 <title>회원 가입</title>
 </head>
 <body>
-				<!-- 데이터를 처리할 페이지 --> 
-	<form action="join_result.jsp" method="get">
+	<!-- 데이터를 처리할 페이지 -->
+	<form action="join_result.jsp" method="get" name="login">
 		<div>
 			아이디 : <input type="text" name="userId">
 		</div>
@@ -23,9 +23,16 @@
 			<label><input type="radio" value="M" name="gender">남자</label>
 			<label><input type="radio" value="F" name="gender">여자</label>
 		</div>
-	<!-- <button type="submit">회원 가입</button> -->
-	<input type="submit" value="회원 가입">
+		<button @onclick="fnJoin">회원 가입</button>
+		<!-- <input type="submit" value="회원 가입"> -->
 	</form>
 
 </body>
 </html>
+<script>
+	function fnJoin() {
+		var login = document.login;
+		
+	}
+</script>
+

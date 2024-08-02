@@ -12,7 +12,7 @@
 			<label>아이디 : <input type="text" name="userId"></label>
 		</div>
 		<div>
-			<label>비밀번호 : <input type="password" name="uesrpwd"></label>
+			<label>비밀번호 : <input type="password" name="userpwd"></label>
 		</div>
 		<input type="submit" value="로그인">
 	</form>

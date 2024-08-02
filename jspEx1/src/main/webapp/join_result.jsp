@@ -9,6 +9,14 @@
 <body>
 	<%
 		String id = request.getParameter("userId");
+		String[] hobby = request.getParameterValues("hobby");
+		for(String h : hobby){
+			out.println(h + "<br>" );
+		}
+		/* for(int i=0; i<hobby.length; i++){
+			out.println(hobby[i]);
+		} */
+		
 		out.println(id + "님 환영합니다!");
 	%>
 </body>

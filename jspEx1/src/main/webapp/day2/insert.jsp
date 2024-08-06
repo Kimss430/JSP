@@ -12,7 +12,7 @@
 </style>
 </head>
 <body>
-	<form action="insult-result.jsp" name="board">
+	<form action="insert-result.jsp" name="board">
 		<div>
 			<label>제목 : <input type="text" name="title"></label>
 		</div>

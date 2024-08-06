@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="login_result.jsp">
+	<form action="login_result.jsp" >
 		<div>
 			<label>아이디 : <input type="text" name="id"></label>
 		</div>

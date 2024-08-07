@@ -1,3 +1,4 @@
+<%@page import="java.lang.classfile.attribute.ModuleTargetAttribute"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
@@ -12,6 +13,8 @@
 	<%
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");
+		String userId = (String) session.getAttribute("userId");
+					/* 문자열로 다운캐스팅!!!!!!!!!!! */
 		ResultSet rs = null;
 		Statement stmt = null;	
 		try{
@@ -19,11 +22,11 @@
 			String query = "INSERT INTO TBL_BOARD VALUES" 
 					+ "("
 					+ "NULL, '" + title + "', '" + contents 
-					+ "', 0, 'user1', 'number', now(), now()" 	
+					+ "', 0, '" + userId + "', 'number', now(), now()" 	
 					+ ")";
 			stmt.executeUpdate(query);
 			System.out.println("쿼리문 : " + query);
-			response.sendRedirect("board-list.jsp");
+			response.sendRedirect("board-list2.jsp");
 
 		} catch(SQLException ex) {
 			out.println("SQLException : " + ex.getMessage());

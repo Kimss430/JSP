@@ -25,7 +25,7 @@
 
 </head>
 <body>
-<form action="board-update.jsp">
+<form action="board-update2.jsp" method = "get">
 	<%@include file="db.jsp"%>	
 	<%
 		ResultSet rs = null;

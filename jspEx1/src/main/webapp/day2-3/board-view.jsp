@@ -43,10 +43,20 @@
 						name="boardNo">
 				<div>제목 : <%= rs.getString("title") %></div>
 				<div>내용 : <%= rs.getString("contents") %></div>
-				<button type="submit">삭제</button>
-				<button type="button" onclick="fnUpdate()">수정</button>
 				
-	<%				
+				
+			<%
+				String sessionId = (String) session.getAttribute("userId");
+				String sessionStatus = (String) session.getAttribute("status");
+				if(rs.getString("userId").equals("sessionId")
+					|| sessionStatus.equals("A")){
+			%>
+				<button type="submit">삭제</button>
+				<button type="button" onclick="fnUpdate()">수정</button>					
+			<%	
+			}
+				
+				 
 			} else {
 				out.println("삭제된 게시글 입니다.");
 			}
@@ -54,7 +64,10 @@
 		} catch(SQLException ex) {
 			out.println("SQLException : " + ex.getMessage());
 		}
-	%>
+		%>
+				
+				
+						
 </form>
 </body>
 </html>

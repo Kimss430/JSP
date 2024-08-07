@@ -19,17 +19,23 @@ table, th, tr, td {
 
 </head>
 <body>
+	<div><button onclick="location.href='login.jsp'">로그아웃</button></div>
 	<%@include file="db.jsp"%>
 	<%
 	ResultSet rs = null;
 	Statement stmt = null;
+	
+	
 	System.out.println(session.getAttribute("userId"));
 	
 
 	try {
 		stmt = conn.createStatement();
-		String querytext = "SELECT * FROM TBL_BOARD";
+		String querytext = "SELECT * FROM tbl_board TB "
+				+ "INNER JOIN tbl_user "
+				+ "TU ON TB.userId = TU.userId;";
 		rs = stmt.executeQuery(querytext);
+
 	%>
 	
 	
@@ -55,7 +61,7 @@ table, th, tr, td {
 					<%= rs.getString("title") %>
 				</a>
 			</td>
-			<td><%=rs.getString("userId")%></td>
+			<td><%=rs.getString("name")%></td>
 			<td><%=rs.getString("cnt")%></td>
 			<td><%=rs.getString("cdatetime")%></td>
 		</tr>

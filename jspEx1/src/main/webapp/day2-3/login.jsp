@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+		/* session.removeAttribute("userId"); */
+		
+		/* session.invalidate(); */
+		/* 세션 모두삭제 */
+		
+		/* out.println(session.getAttribute("userId")); */
+	%>
+
+
 	<form action="login_result.jsp" >
 		<div>
 			<label>아이디 : <input type="text" name="id"></label>

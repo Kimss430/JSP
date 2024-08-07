@@ -23,11 +23,16 @@
 		ResultSet rs = null;
 		Statement stmt = null;
 		/* String title = rs. */
-		
+		String title = request.getParameter("title");
+		String contents = request.getParameter("contents");
+		String boardNo = request.getParameter("boardNo");
 		
 		try{
 			stmt = conn.createStatement();
-			String querytext = "UPDATE TBL_BOARD SET TITLE = 'D', CONTENTS = 'D' WHERE BOARDNO = 'boardNo'";
+			String querytext = 
+					"UPDATE tbl_board "
+					+ "SET TITLE = 'title', CONTENTS = 'contents' "
+					+ "WHERE BOARDNO = 'boardNo'";
 			rs = stmt.executeQuery(querytext);
 		
 		} catch(SQLException ex) {

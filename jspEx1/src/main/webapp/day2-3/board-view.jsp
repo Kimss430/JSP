@@ -15,6 +15,12 @@
 	 border-collapse: collapse;
 	 padding: 10px;
 	}
+	.comment {
+		width: 330px;
+		height : 20px;
+		padding: 5px;
+		margin: 10px 0;
+	}
 
 }
 	
@@ -43,8 +49,13 @@
 						name="boardNo">
 				<div>제목 : <%= rs.getString("title") %></div>
 				<div>내용 : <%= rs.getString("contents") %></div>
-				
-				
+				<hr>
+				<div>댓글 : 
+					<input type="text" placeholder="댓글 써라" class="comment">
+					<button onclick="fnComment()" type="button">등록</button>
+			 	</div>
+					
+				<hr>
 			<%
 				String sessionId = (String) session.getAttribute("userId");
 				String sessionStatus = (String) session.getAttribute("status");
@@ -78,10 +89,19 @@
 		form.action = "board-update.jsp";
 		form.submit();
 	}
-	
-	
 	/* function fnUpdate(boardNo){
 		location.href= "board-view.jsp?boardNo=" + boardNo;
 	} */
+	
+	
+	function fnComment()
+		var form = document.board;
+		var url =
+		"comment-insert.jsp?boardNo= "
+			+ form.boardNo.value 
+			+ "&comment= "
+			+ form.comment.value; 
+		window.open(url, "reset", "width=500, height=500");
+	
 	
 </script>

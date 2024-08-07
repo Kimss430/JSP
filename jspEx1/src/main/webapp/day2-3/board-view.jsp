@@ -51,7 +51,7 @@
 				<div>내용 : <%= rs.getString("contents") %></div>
 				<hr>
 				<div>댓글 : 
-					<input type="text" placeholder="댓글 써라" class="comment">
+					<input type="text" placeholder="댓글 써라" class="comment" name="comment">
 					<button onclick="fnComment()" type="button">등록</button>
 			 	</div>
 					
@@ -59,11 +59,19 @@
 			<%
 				String sessionId = (String) session.getAttribute("userId");
 				String sessionStatus = (String) session.getAttribute("status");
+				
 				if(rs.getString("userId").equals("sessionId")
 					|| sessionStatus.equals("A")){
 			%>
 				<button type="submit">삭제</button>
 				<button type="button" onclick="fnUpdate()">수정</button>					
+			<%
+				querytext = "SELECT * FROM TBL_COMMENT WHERE BOARDNO = " + boardNo;
+				rs = stmt.executeQuery(querytext);
+				while(rs.next()){
+			%>
+					<div> <%= rs.getString("userId") %> : <%= rs.getString("comment") %> </div>
+			<%	} %>	
 			<%	
 			}
 				
@@ -81,7 +89,6 @@
 						
 </form>
 </body>
-</html>
 <script>
 	
 	function fnUpdate(){
@@ -94,14 +101,19 @@
 	} */
 	
 	
-	function fnComment()
+	function fnComment(){
 		var form = document.board;
 		var url =
-		"comment-insert.jsp?boardNo= "
+		"comment-insert.jsp?boardNo="
 			+ form.boardNo.value 
-			+ "&comment= "
+			+ "&comment="
 			+ form.comment.value; 
 		window.open(url, "reset", "width=500, height=500");
+		}
+	function fnReload(){
+		location.reload();
+	}
 	
 	
 </script>
+</html>

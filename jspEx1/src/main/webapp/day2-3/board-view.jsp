@@ -47,15 +47,9 @@
 				<input type="hidden"
 						value="<%= rs.getString("boardNo") %>"
 						name="boardNo">
-				<div>제목 : <%= rs.getString("title") %></div>
 				<div>내용 : <%= rs.getString("contents") %></div>
-				<hr>
-				<div>댓글 : 
-					<input type="text" placeholder="댓글 써라" class="comment" name="comment">
-					<button onclick="fnComment()" type="button">등록</button>
-			 	</div>
-					
-				<hr>
+				<div>제목 : <%= rs.getString("title") %></div>
+				
 			<%
 				String sessionId = (String) session.getAttribute("userId");
 				String sessionStatus = (String) session.getAttribute("status");
@@ -64,7 +58,16 @@
 					|| sessionStatus.equals("A")){
 			%>
 				<button type="submit">삭제</button>
-				<button type="button" onclick="fnUpdate()">수정</button>					
+				<button type="button" onclick="fnUpdate()">수정</button>		
+				
+				<hr>
+				<div>댓글 : 
+					<input type="text" placeholder="댓글 써라" class="comment" name="comment">
+					<button onclick="fnComment()" type="button">등록</button>
+			 	</div>
+					
+				<hr>
+							
 			<%
 				querytext = "SELECT * FROM TBL_COMMENT WHERE BOARDNO = " + boardNo;
 				rs = stmt.executeQuery(querytext);

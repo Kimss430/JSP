@@ -28,4 +28,10 @@
 		
 	</form>
 </body>
+<script>
+   function fnReload(){
+		 location.reload();
+	 }
+	 </script>
 </html>
+	 

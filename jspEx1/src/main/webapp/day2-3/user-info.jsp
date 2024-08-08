@@ -15,9 +15,6 @@
 	 border-collapse: collapse;
 	 padding: 10px;
 	}
-	div {
-		margin-top : 5px;
-	}
 
 }
 	
@@ -25,37 +22,35 @@
 
 </head>
 <body>
-<form action="board-update.jsp" method = "get">
 	<%@include file="db.jsp"%>	
 	<%
 		ResultSet rs = null;
 		Statement stmt = null;
-		String boardNo = request.getParameter("boardNo");
+		String id = request.getParameter("userId");
+		
 		
 		try{
 			stmt = conn.createStatement();
-			String querytext = "SELECT * FROM TBL_BOARD WHERE BOARDNO = " + boardNo;
+			String querytext = "SELECT * FROM tbl_user WHERE userId ='" + id+ "'";
 			rs = stmt.executeQuery(querytext);
-			
+				
 			if(rs.next()){
-	%>	
-				<input  type="hidden" 
-						value="<%= rs.getString("boardNo") %>" 
-						name="boardNo"> 
-				<div>제목 : <input value="<%= rs.getString("title") %>" name="title"></div>
-				<div>내용 : 
-					<textarea cols="50" rows="10" name="contents"><%= rs.getString("contents") %></textarea>
-				</div>
-				<button type="submit">저장</button>
-	<%			
-			} else {
-				out.println("삭제된 게시글 입니다.");
-			}
+				out.println("중복된 아이디");
+		%>
+		
+			<div><%= rs.getString("userId")%></div>
+			<div><%= rs.getString("name")%></div>
+			<div><%= rs.getString("status")%></div>
+		<%		
+				} 
+				else {
+					out.println("삭제된 아이디");
+				}
 			
 		} catch(SQLException ex) {
 			out.println("SQLException : " + ex.getMessage());
 		}
 	%>
-</form>
+
 </body>
 </html>

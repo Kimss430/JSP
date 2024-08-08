@@ -11,7 +11,7 @@
 <%@include file="db.jsp"%>	
 	<%
 		ResultSet rs = null;
-		/* 리턴타입 */
+		/* 셀렉트한 결과를 담은거 */
 		Statement stmt = null;
 		/* 호출 */
 		

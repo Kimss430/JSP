@@ -18,11 +18,11 @@
 
 </head>
 <body>
-	<%@include file="db.jsp"%>	
+	<%-- <%@include file="db.jsp"%>	
 	<%
 		ResultSet rs = null;
 		Statement stmt = null;
-		/* String title = rs. */
+
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");
 		String boardNo = request.getParameter("boardNo");
@@ -38,7 +38,7 @@
 		} catch(SQLException ex) {
 			out.println("SQLException : " + ex.getMessage());
 		}
-	%>
+	%> --%>
 	
 </body>
 </html>

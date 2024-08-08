@@ -41,6 +41,7 @@
 			<div><%= rs.getString("userId")%></div>
 			<div><%= rs.getString("name")%></div>
 			<div><%= rs.getString("status")%></div>
+		
 		<%		
 				} 
 				else {

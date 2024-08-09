@@ -43,7 +43,7 @@ a:visited, a:link {
 			<th>비밀번호</th>
 		</tr>	
 
-			<c:forEach var="row" items="${result.rows}"> 
+		 		<c:forEach var="row" items="${result.rows}">>
 			
 		<tr>
 			<td>${row.userId}</td>
@@ -52,18 +52,17 @@ a:visited, a:link {
 				<c:if test="${row.status == 'A'}">관리자</c:if>
 				<c:if test="${row.status == 'B'}">일반회원</c:if>
 			</td>
-			
 				
-		
-
+				
+				
+				
 			<td>
 				<c:if test="${row.cnt >= 5 }">
 					<button onclick="fnReset('${row.userId}'">초기화</button>
 				</c:if>
 			</td>
-			
+			</c:forEach>
 			>
-			%>
 		</tr>
 		
 		
